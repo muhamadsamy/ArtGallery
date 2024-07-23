@@ -1,0 +1,11 @@
+{
+    "development": {
+      "databaseURI": "mongodb://localhost:27017/artgallery_dev",
+      "jwtSecret": "your_development_jwt_secret"
+    },
+    "production": {
+      "databaseURI": "mongodb://db_server/artgallery_prod",
+      "jwtSecret": "your_production_jwt_secret"
+    }
+  }
+  
