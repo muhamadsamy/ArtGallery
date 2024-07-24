@@ -4,10 +4,11 @@ import { isAdmin ,isUser } from "../MiddleWares/auth.js";
 
 const router= express.Router();
 
-
+router.get('/orders/:orderNumber',searchOrders); 
+router.get('/orders/id/:id', viewOrderDetails); 
 router.get("/orders",listOrders);
-router.get('/orders?=orderNumber',searchOrders); 
-router.get('/orders/:id',viewOrderDetails); 
+
+ 
 router.put('/orders/:id', updateOrderStatus); 
 
 export default router;
