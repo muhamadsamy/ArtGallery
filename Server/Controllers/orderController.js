@@ -10,44 +10,49 @@ const listOrders=async(req,res)=>{
 };
 
 const searchOrders = async (req, res) => {
-    
-  
-    try {
+  const { orderNumber } = req.params; // Extract orderNumber from req.params
+
+  try {
       if (!orderNumber) {
-        return res.status(400).json({ message: 'Order number is required in query parameters.' });
+          return res.status(400).json({ message: 'Order number is required in query parameters.' });
       }
-  
-      const orders = await Order.findById(req.params.orderNumber);
-  
-      if (orders.length === 0) {
-        return res.status(404).json({ message: `Couldn't find order with order number ${orderNumber}` });
-      }
-  
-      res.json(orders);
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  };
-  
-  
 
+      const order = await Order.findOne({ orderNumber });
 
-
-  const viewOrderDetails = async (req, res) => {
-    const { id } = req.params;
-    try {
-      const order = await Order.findById(id);
       if (!order) {
-        return res.status(404).json({ message: 'Order not found.' });
+          return res.status(404).json({ message: `Couldn't find order with order number ${orderNumber}` });
       }
+
       res.json(order);
-    } catch (err) {
+  } catch (err) {
+      res.status(500).json({ message: err.message });
+  }
+};
+
+  
+
+
+
+const viewOrderDetails = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+      const order = await Order.findById(id);
+
+      if (!order) {
+          return res.status(404).json({ message: 'Order not found.' });
+      }
+
+      res.json(order);
+  } catch (err) {
       if (err.name === 'CastError') {
-        return res.status(400).json({ message: 'Invalid order ID format.' });
+          return res.status(400).json({ message: 'Invalid order ID format.' });
       }
       res.status(500).json({ message: err.message });
-    }
-  };
+  }
+};
+
+
   
 
   
@@ -76,4 +81,6 @@ const updateOrderStatus = async (req, res) => {
   };
       
       export { listOrders, searchOrders, viewOrderDetails, updateOrderStatus };
+    
+    
     
