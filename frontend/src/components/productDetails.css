@@ -1,0 +1,78 @@
+
+.product-card {
+   
+    border-radius: 0;
+    overflow: hidden;
+    margin: 0;
+    
+    
+}
+
+.product-image {
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
+    margin: 0;
+  
+    
+    
+}
+
+.product-details {
+    background-color: rgb(5, 8, 0);
+    color: #f0e68c; 
+    padding: 5px;
+    margin :0;
+}
+
+.product-title {
+    font-size:xx-large;
+    font-weight: bold;
+    font-style: normal; 
+}
+
+.product-description {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+.product-category,
+.product-price,
+.product-stock,
+.product-status {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+.product-status.available {
+    color: yellow;
+    font-weight: bold;
+}
+
+.product-status.outofstock {
+    color: red;
+    font-weight: bold;
+}
+
+.product-price {
+    color: #f0e68c; 
+    font-size: 1.25rem;
+}
+
+.custom-button {
+    background-color: #4a90e2;
+    border: none; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    font-size: 1rem; 
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #357abd; 
+    cursor: pointer; 
+}

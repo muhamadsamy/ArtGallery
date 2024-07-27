@@ -1,0 +1,45 @@
+
+
+.navbar-custom {
+  background-color: rgb(5, 8, 0);
+  position:sticky ;
+  top: 0;
+  z-index: 100;
+   
+    
+  }
+  
+  .navbar-custom .navbar-brand {
+    font-size: 1.5rem; 
+    color: #ffffff; 
+    text-align: center; 
+  
+  }
+  .navbar-custom .navbar-brand:hover {
+    color: #f8f9fa; 
+    background-color: rgb(5, 8, 0); 
+    transform: scale(1.05);
+  }
+  
+    .navbar-custom .nav-link {
+      color: #ffffff; 
+      margin-left: 50px; 
+      margin-right: 10px; 
+      font-size: 1rem;
+    }
+    
+    .navbar-custom .nav-link:hover {
+      background-color: rgb(5, 8, 0); 
+      color: #ffffff; 
+      transform: scale(1.05);
+    }
+  
+  .navbar-custom .nav-dropdown-item:hover {
+    background-color:#495057; 
+    color: #ffffff; 
+  }
+  
+  .navbar-custom .nav-dropdown-toggle::after {
+    border-color: black; 
+  }
+  

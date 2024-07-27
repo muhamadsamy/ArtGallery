@@ -1,0 +1,21 @@
+
+.footer-section {
+    background-color: rgb(5, 8, 0); 
+  }
+  
+  .footer-section h5 {
+    color: #f8c300; 
+  }
+  
+  .footer-section p {
+    color: #ffffff; 
+  }
+  
+  .footer-section a {
+    color: #ffffff; 
+  }
+  
+  .footer-section a:hover {
+    color: #f8c300;
+  }
+  
