@@ -38,7 +38,7 @@ const ProductDetails = () => {
     if (error) return <Alert variant="danger">{error}</Alert>;
 
     return (
-        <Row className="justify-content-center py-5 bg-dark m-0 ">
+        <Row style={{height:760}} className="justify-content-center py-5 bg-dark m-0 ">
             <Col md={8} lg={6}>
                 <Card className="product-card bg-dark ">
                     <Row className="product-details">
