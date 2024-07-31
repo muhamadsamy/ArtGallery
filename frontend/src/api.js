@@ -19,8 +19,11 @@ export const updateProduct = (id, data) => axiosInstance.put(`/products/${id}`, 
 export const deleteProduct = (id) => axiosInstance.delete(`/products/${id}`);
 
 export const fetchOrders = () => axiosInstance.get('/orders');
+export const postOrders = (data) => axiosInstance.post('/orders',data);
 export const fetchOrderById = (id) => axiosInstance.get(`/orders/id/${id}`);
 export const updateOrderStatus = (id, data) => axiosInstance.put(`/orders/${id}`, data);
+export const fetchOrdersByEmail = (email) => axiosInstance.get(`/orders/email/${email}`);
+
 
 export const registerUser = (data) => axiosInstance.post('/register', data);
 export const loginUser = (data) => axiosInstance.post('/login', data);

@@ -64,6 +64,8 @@ function Login() {
     try {
       const response = await loginUser(userData);
       const { token } = response.data;
+      const {customer} = response.data;
+      localStorage.setItem("customer",  JSON.stringify(customer));
       sessionStorage.setItem("authToken", token);
       setMessage("Login successful! Redirecting to home...");
 

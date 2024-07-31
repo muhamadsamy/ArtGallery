@@ -15,6 +15,7 @@ function NavigationBar() {
 
   const handleLogout = () => {
     sessionStorage.removeItem("authToken");
+    localStorage.removeItem("customer");
     navigate("/login");
   };
   return (

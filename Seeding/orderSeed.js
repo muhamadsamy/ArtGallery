@@ -1,5 +1,3 @@
-// seedOrders.js
-
 import mongoose from 'mongoose';
 import Order from '../Server/Models/Order.js';
 import connectDB from "../Server/Models/db.js";

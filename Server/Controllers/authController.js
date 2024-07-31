@@ -86,14 +86,21 @@ export const loginUser = async (req, res) => {
 
     // Generate JWT token
     const payload = {
-      Customer: {
-        id: customer.id,
-      },
+      Customer: customer, // Include the entire customer object in the payload
     };
-
+  
+    // Sign the JWT with the payload and secret, and set an expiration
     jwt.sign(payload, config.jwtSecret, { expiresIn: '1h' }, (err, token) => {
-      if (err) throw err;
-      res.json({ token });
+      if (err) {
+        console.error('Error signing JWT:', err.message);
+        return res.status(500).send('Server Error');
+      }
+  
+      // Send both the customer object and token in the response
+      res.json({
+        token,
+        customer, // Include the customer object in the response
+      });
     });
   } catch (err) {
     console.error(err.message);

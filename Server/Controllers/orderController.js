@@ -1,5 +1,28 @@
 import Order from "../Models/Order.js";
 
+const createOrder = async (req, res) => {
+  const { customerName,customerEmail, customerPhone, customerAddress, orderItems, orderTotal } = req.body;
+  const orderNumber = `ORD-${Date.now()}`; // Generate a unique order number
+
+  const newOrder = new Order({
+      orderNumber,
+      customerName,
+      customerEmail,
+      customerPhone,
+      customerAddress,
+      orderStatus: 'pending',
+      orderItems,
+      orderTotal
+  });
+
+  try {
+      const savedOrder = await newOrder.save();
+      res.status(201).json(savedOrder);
+  } catch (error) {
+      res.status(500).json({ mes: error.message });
+  }
+};
+
 const listOrders=async(req,res)=>{
     try{
         const orders=  await Order.find();
@@ -53,7 +76,18 @@ const viewOrderDetails = async (req, res) => {
 };
 
 
-  
+const getOrderHistory = async (req, res) => {
+  try {
+    const {email} = req.params; 
+    const orders = await Order.find({customerEmail : email})
+      .select('orderNumber orderStatus orderDate orderItems orderTotal customerName customerEmail customerAddress customerPhone')
+      .sort({ orderDate: -1 });
+
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
 
   
   
@@ -80,7 +114,7 @@ const updateOrderStatus = async (req, res) => {
     }
   };
       
-      export { listOrders, searchOrders, viewOrderDetails, updateOrderStatus };
+      export { createOrder ,listOrders, searchOrders, viewOrderDetails, getOrderHistory,updateOrderStatus };
     
     
     
